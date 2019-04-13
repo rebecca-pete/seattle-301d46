@@ -12,7 +12,7 @@ const viewed = [];
 const labels = [];
 const pics = [leftImage, centerImage, rightImage];
 const list = document.getElementById('productlist');
-const totalClicks = 0;
+let totalClicks = 0; //changed from const to let so that the value could be re-assigned later
 const views = [];
 const votes = [];
 
@@ -59,7 +59,7 @@ function handleClick(event) {
     showList();
     makeChart();
   }
-  for(const i = 0; i < names.length; i++){
+  for(let i = 0; i < names.length; i++){ // changed const to let because a local variable is needed/value needs to be re-assigned
     if(event.target.id === allProducts[i].name) {
       allProducts[i].votes += 1;
       console.log(`${event.target.id} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`);
@@ -71,7 +71,7 @@ function handleClick(event) {
 }
 
 function showList() {
-  for(const i = 0; i < allProducts.length; i++) {
+  for(let i = 0; i < allProducts.length; i++) {
     const liEl = document.createElement('li');
     liEl.textContent = `${allProducts[i].name} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`;
     list.appendChild(liEl);
