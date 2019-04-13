@@ -12,7 +12,7 @@ const viewed = [];
 const labels = [];
 const pics = [leftImage, centerImage, rightImage];
 const list = document.getElementById('productlist');
-let totalClicks = 0; //changed from const to let so that the value could be re-assigned later 
+let totalClicks = 0; //changed from const to let so that the value could be re-assigned later
 const views = [];
 const votes = [];
 
