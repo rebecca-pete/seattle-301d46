@@ -35,7 +35,7 @@ console.log('Without parens:', withoutParens('Code 301'));
 // If the code block contains a single line of code, we can write everything on one line
 // We no longer need the curly braces and the return is implicit
 // Without an arrow function, we need to explicitly type "return"
-const oneLiner = course => `I cam currently enrolled in ${course}`;
+const oneLiner = course => `I am currently enrolled in ${course}`;
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log('As a one-liner:', oneLiner('Code 301'));
@@ -105,7 +105,7 @@ console.log('Hello from the new object function', newObject(['hi', 'hello', 'are
 // Refactor each function into an arrow function.
 // Write your solutions on a single line wherever possible.
 
-let sum = (a, b, c, d) => a + b + c + d; 
+let sum = (a, b, c, d) => a + b + c + d;
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 console.log(sum(1, 2, 3, 4));
@@ -115,26 +115,24 @@ let objectLit = () => ({
   key2: 'value2',
   key3: 'value3',
 });
-//start here Becky
-// TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(objectLit());
 
-let sumAndProduct = function(a, b) {
+// TODO: Uncomment the following line of code to see the output in the browser console
+console.log(objectLit());
+
+let sumAndProduct = (a, b) => {
   let sum = a + b;
   let product = a * b;
   return [sum, product];
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(sumAndProduct(3, 9));
+console.log(sumAndProduct(3, 9));
 
 
-let message = function(name) {
-  return `Hello, ${name}!`;
-};
+let message = name => `Hello, ${name}!`;
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(message('Allie'));
+console.log(message('Allie'));
 
 
 let Student = function(name, age, hometown) {
@@ -143,11 +141,11 @@ let Student = function(name, age, hometown) {
   this.hometown = hometown;
 };
 
-let joe = new Student('Joe', 'Schmoe', 100);
+let joe = new Student('Joe', 100, 'Schmoe');
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
-// console.log(joe);
+console.log(joe);
 
 
 Student.prototype.greeting = function() {
@@ -156,7 +154,7 @@ Student.prototype.greeting = function() {
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
-// console.log(joe.greeting());
+console.log(joe.greeting());
 
 
 Student.courseName = function() {
@@ -164,7 +162,7 @@ Student.courseName = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(Student.courseName());
+console.log(Student.courseName());
 
 
 
@@ -175,17 +173,19 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+console.log(joe.scope()); //undefined
 
-Student.prototype.scopeArrow = () => console.log(this);
+Student.prototype.scopeArrow = () => console.log(this); //bubbles up to window
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scopeArrow());
+console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+// 'this' refers to the object created by the constructor function
+
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+// joe.scopeArrow() is specifically defined using an arrow function. Therefor, the context for this bubbles up to the global window object rather than the object created by the constructor function.
+
 // 3. Explain why "this" is different when an arrow function is used.
-//
+// The context for 'this' bubbles up to the global window object in the latter example.
